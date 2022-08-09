@@ -1,0 +1,444 @@
+@charset "utf-8";
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "맑은 고딕", sans-serif;
+    color: #333333;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333333;
+}
+
+
+/* 팝업 */
+#pop{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+#pop .pop{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: #00ff00;
+}
+.close{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 80px;
+    height: 30px;
+}
+
+
+/* layout */
+#wrap{
+    width: 1200px;
+    height: 800px;
+    margin: 0 auto;
+}
+
+header{
+    width: 1200px;
+    height: 100px;
+    background: #ffffff;
+    position: relative;
+    z-index: 99999;
+}
+
+#logo{
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+
+#logo img{
+    margin: 10px 0;
+}
+
+
+/* 가로메뉴 */
+.depth1{
+    width: 800px;
+    height: 100px;
+    float: right;
+}
+
+.depth1 > li {
+    width: 200px;
+    height: 100px;
+    float: left;
+    text-align: center;
+    position: relative;  /* 서브메뉴들기준잡기위해서 */
+}
+
+.depth1 > li > a{
+    display: block;  /* 인라인요소라서 너비높이지정위해서 */
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    font-weight: bold;
+    background: #ffbfcf;
+}
+
+.depth1 > li > a:hover{
+    background: #bfffbf;
+    color: #ff99b3;
+}
+
+.depth2{
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    top: 100px;
+    background: #ffffbf;
+    display: none;
+}
+
+.depth2 > li{
+    width: 200px;
+    height: 30px;
+}
+
+.depth2 > li > a{
+    display: block;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.depth2 > li > a:hover{
+    background: #bfefff;
+    color: #f36f12;
+}
+
+#drop{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 1200px;
+    height: 120px;
+    background: #ffffdf;
+    display: none;
+}
+
+
+/* section */
+section{
+    width: 1200px;
+    height: 500px;
+}
+
+/* 슬라이드 */
+#slide{
+    position: relative;
+    width: 1200px;
+    height: 300px;
+}
+
+#slide ul li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    height: 300px;
+}
+
+
+/* contents */
+#contents{
+    width: 1200px;
+    height: 200px;
+}
+
+/* tab */
+#tab{
+    position: relative;
+    width: 500px;
+    height: 200px;
+    float: left;
+}
+
+#tab .on{
+    display: block;
+}
+
+.tab{
+    width: 500px;
+    height: 30px;
+}
+
+.tab ul{
+    width: 150px;
+    height: 30px;
+}
+
+.tab ul li{
+    width: 75px;
+    height: 30px;
+    float: left;
+    background: #eeeeee;
+}
+
+.tab ul li.on{
+    background: #cfffbf;
+}
+
+.tab ul li a{
+    display: block;
+    width: 75px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.content{
+    position: absolute;
+    top: 30px;
+    width: 500px;
+    height: 170px;
+    background: #cfffbf;
+    display: none;
+}
+
+.table{
+    width: 400px;
+    height: 150px;
+    margin: 10px auto;
+}
+
+.table li{
+    width: 400px;
+    height: 37.5px;
+}
+
+.table_text{
+    width: 400px;
+    height: 37.5px;
+    border-bottom: 1px solid #cccccc;
+    box-sizing: border-box;
+}
+
+.table_text a{
+    width: 400px;
+    height: 37.5px;
+    line-height: 37.5px;
+}
+
+.table_text a .date{
+    display: block;
+    width: 100px;
+    float: left;
+}
+
+.gallery{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.gallery li{
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.gallery li:hover image{
+    opacity: 0.7;
+}
+/* fade */
+#fade{
+    position: relative;
+    width: 350px;
+    height: 200px;
+    float: left;
+}
+
+#fade img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: fadeInfadeOut 9s infinite;
+}
+#fade img:nth-child(1){
+    animation-delay:0s ;
+}
+#fade img:nth-child(2){
+    animation-delay:3s ;
+}
+#fade img:nth-child(3){
+    animation-delay:6s ;
+}
+
+@keyframes fadeInfadeOut{
+    0%{opacity: 0;}
+    11.11%{opacity: 1;}
+    33.33%{opacity: 1;}
+    40%{opacity: 0;}
+    100%{opacity: 0;}
+}
+
+/* 가로메뉴2 */
+#menu2{
+    width: 350px;
+    height: 200px;
+    float: left;
+}
+
+.depth3{
+    width: 350px;
+    height: 200px;
+}
+
+.depth3 >li{
+    width: 175px;
+    height: 200px;
+    float: left;
+    position: relative;
+    text-align: center;
+}
+.depth3 >li>a{
+    display: block;
+    width: 175px;
+    height: 200px;
+    line-height: 200px;
+    background: #bfbfff;
+}
+.depth4{
+    width: 175px;
+    height: 100px;
+    background: #efffbf;
+    display: none;
+}
+.depth4 li{
+    width: 175px;
+    height: 25px;
+}
+.depth4 li a{
+    display: block;
+    width: 175px;
+    height: 25px;
+    line-height: 25px;
+}
+
+/* 푸터 */
+footer{
+    width: 1200px;
+    height: 200px;
+}
+/* 세로메뉴1 */
+#menu3{
+    float: left;
+    width: 400px;
+    height: 200px;
+}
+.depth5{
+    width: 400px;
+    position: relative;
+}
+.depth5 > li{
+    width: 400px;
+    text-align: center;
+}
+.depth5 > li >a{
+    display: block;
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    background: #bfbfff;
+}
+
+.depth6{
+    display: none;
+}
+.depth6 li{
+    width: 400px;
+}
+.depth6 a{
+    display: block;
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    background: #ffff99;
+}
+
+/* 세로메뉴2 */
+#menu4{
+    width: 400px;
+    height: 200px;
+    float: left;
+    position: relative;
+}
+.depth7{
+    width: 400px;
+}
+
+.depth7>li{
+    width: 400px;
+    height: 50px;
+    text-align: center;
+    background: #bfbfff;
+    position: relative;
+}
+
+.depth7>li>a{
+    display: block;
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.depth8{
+    position: absolute;
+    top: 0;
+    left: 400px;
+    width: 120px;
+    display: none;
+}
+.depth8>li{
+    width: 120px;
+    height: 50px;
+    background: #bfffef;
+}
+.depth8>li>a{
+    display: block;
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+}
+/* 팝업버튼 */
+#open{
+    width: 400px;
+    height: 200px;
+    float: left;
+}
+.open{
+    display: block;
+    width: 400px;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    background: #ffdfbf;
+}
+
+
+
+
+/* 팝업버튼 */
